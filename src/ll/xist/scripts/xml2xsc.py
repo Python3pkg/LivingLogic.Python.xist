@@ -143,7 +143,7 @@ def addetree2xnd(ns, node, elements):
 				xndnode = xnd.Element(xmlns, name)
 				ns += xndnode
 				elements[(xmlns, name)] = set()
-			for attrname in node.keys():
+			for attrname in list(node.keys()):
 				if not attrname.startswith("{") and attrname not in xndnode.attrs:
 					xndnode += xnd.Attr(attrname, type=xsc.TextAttr)
 		elif "ProcessingInstruction" in type(node).__name__:
@@ -191,10 +191,10 @@ def makexnd(urls, parser="etree", shareattrs="dupes", model="simple", defaultxml
 	if model == "none":
 		pass
 	elif model == "simple":
-		for (fullname, modelset) in elements.items():
+		for (fullname, modelset) in list(elements.items()):
 			ns.elements[fullname].modeltype = bool(modelset)
 	elif model in ("fullall", "fullonce"):
-		for (fullname, modelset) in elements.items():
+		for (fullname, modelset) in list(elements.items()):
 			element = ns.elements[fullname]
 			if not modelset:
 				element.modeltype = "sims.Empty"
@@ -230,7 +230,7 @@ def main(args=None):
 	p.add_argument("-x", "--defaultxmlns", dest="defaultxmlns", metavar="NAME", help="Force elements without a namespace into this namespace")
 
 	args = p.parse_args(args)
-	print(makexnd(**args.__dict__))
+	print((makexnd(**args.__dict__)))
 
 
 if __name__ == "__main__":

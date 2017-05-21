@@ -309,7 +309,7 @@ class Encoder:
 				self._record(obj)
 				self._line("E" if isinstance(obj, ordereddict) else "D")
 				self._level += 1
-				for (key, item) in obj.items():
+				for (key, item) in list(obj.items()):
 					self.dump(key)
 					self.dump(item)
 				self._level -= 1

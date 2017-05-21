@@ -170,7 +170,7 @@ def adddtd2xnd(ns, dtd):
 				type = "xsc.IDAttr"
 			else:
 				type = "xsc.TextAttr"
-				values = attrdecl.values()
+				values = list(attrdecl.values())
 				if len(values) == 1:
 					type = "xsc.BoolAttr"
 					values = None
@@ -257,7 +257,7 @@ def main(args=None):
 	p.add_argument(      "--duplicates", dest="duplicates", help="How to handle duplicate elements from multiple DTDs (default: %(default)s)", choices=("reject", "allow", "merge"), default="reject")
 
 	args = p.parse_args(args)
-	print(urls2xnd(**args.__dict__))
+	print((urls2xnd(**args.__dict__)))
 
 
 if __name__ == "__main__":

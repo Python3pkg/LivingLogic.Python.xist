@@ -191,7 +191,7 @@ class end(xsc.ProcInst):
 
 
 # The name of all available processing instructions
-targets = {value.xmlname for value in vars().values() if isinstance(value, xsc._ProcInst_Meta)}
+targets = {value.xmlname for value in list(vars().values()) if isinstance(value, xsc._ProcInst_Meta)}
 
 
 # Used for indenting Python source code

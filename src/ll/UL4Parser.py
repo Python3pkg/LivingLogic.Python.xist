@@ -415,7 +415,7 @@ class UL4Parser(Parser):
 
                 if self._state.backtracking == 0:
                     pass
-                    node = ul4c.Const(self.tag, slice(self.startpos(DATE8), self.stoppos(DATE8)), datetime.datetime(*map(int, [f for f in ul4c._datesplitter.split(DATE8.text[2:-1]) if f]))) 
+                    node = ul4c.Const(self.tag, slice(self.startpos(DATE8), self.stoppos(DATE8)), datetime.datetime(*list(map(int, [f for f in ul4c._datesplitter.split(DATE8.text[2:-1]) if f])))) 
 
 
 
@@ -7149,95 +7149,95 @@ class UL4Parser(Parser):
     # lookup tables for DFA #28
 
     DFA28_eot = DFA.unpack(
-        u"\77\uffff"
+        "\77\uffff"
         )
 
     DFA28_eof = DFA.unpack(
-        u"\1\1\76\uffff"
+        "\1\1\76\uffff"
         )
 
     DFA28_min = DFA.unpack(
-        u"\1\5\51\uffff\1\0\1\uffff\1\0\22\uffff"
+        "\1\5\51\uffff\1\0\1\uffff\1\0\22\uffff"
         )
 
     DFA28_max = DFA.unpack(
-        u"\1\112\51\uffff\1\0\1\uffff\1\0\22\uffff"
+        "\1\112\51\uffff\1\0\1\uffff\1\0\22\uffff"
         )
 
     DFA28_accept = DFA.unpack(
-        u"\1\uffff\1\5\71\uffff\1\1\1\3\1\4\1\2"
+        "\1\uffff\1\5\71\uffff\1\1\1\3\1\4\1\2"
         )
 
     DFA28_special = DFA.unpack(
-        u"\52\uffff\1\0\1\uffff\1\1\22\uffff"
+        "\52\uffff\1\0\1\uffff\1\1\22\uffff"
         )
 
 
     DFA28_transition = [
-        DFA.unpack(u"\2\1\3\uffff\2\1\1\uffff\3\1\1\uffff\2\1\3\uffff\1\1"
-        u"\4\uffff\5\1\1\54\11\1\1\73\17\1\1\52\20\1"),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u"\1\uffff"),
-        DFA.unpack(u""),
-        DFA.unpack(u"\1\uffff"),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u"")
+        DFA.unpack("\2\1\3\uffff\2\1\1\uffff\3\1\1\uffff\2\1\3\uffff\1\1"
+        "\4\uffff\5\1\1\54\11\1\1\73\17\1\1\52\20\1"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\uffff"),
+        DFA.unpack(""),
+        DFA.unpack("\1\uffff"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("")
     ]
 
     # class definition for DFA #28

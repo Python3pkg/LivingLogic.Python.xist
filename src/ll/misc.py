@@ -292,7 +292,7 @@ class Pool:
 		if isinstance(object, types.ModuleType):
 			self.register(object.__dict__)
 		elif isinstance(object, dict):
-			for (key, value) in object.items():
+			for (key, value) in list(object.items()):
 				if key == "__bases__":
 					for base in value:
 						if not isinstance(base, Pool):
@@ -592,7 +592,7 @@ def javaexpr(obj):
 	elif isinstance(obj, collections.Sequence):
 		return "java.util.Arrays.asList({})".format(", ".join(javaexpr(item) for item in obj))
 	elif isinstance(obj, collections.Mapping):
-		return "com.livinglogic.utils.MapUtils.makeMap({})".format(", ".join("{}, {}".format(javaexpr(key), javaexpr(value)) for (key, value) in obj.items()))
+		return "com.livinglogic.utils.MapUtils.makeMap({})".format(", ".join("{}, {}".format(javaexpr(key), javaexpr(value)) for (key, value) in list(obj.items())))
 	elif isinstance(obj, collections.Set):
 		return "com.livinglogic.utils.SetUtils.makeSet({})".format(", ".join(javaexpr(item) for item in obj))
 	elif isinstance(obj, ul4c.UndefinedKey):
@@ -992,7 +992,7 @@ def prettycsv(rows, padding="   "):
 	lengths = [max(width(row, i) for row in rows) for i in range(maxlen)]
 	for row in rows:
 		lasti = len(row)-1
-		for (i, (w, f)) in enumerate(zip(lengths, row)):
+		for (i, (w, f)) in enumerate(list(zip(lengths, row))):
 			if i:
 				yield padding
 			if i == lasti:

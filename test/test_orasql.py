@@ -111,7 +111,7 @@ def test_connection_users():
 @pytest.mark.db
 def test_referenceconsistency(db_data):
 	objects = db_data.objects()
-	for info in objects.values():
+	for info in list(objects.values()):
 		for refobj in info.references:
 			# check that :meth:`objects` returned everything from this schema
 			assert refobj.owner is not None or refobj in objects
@@ -246,7 +246,7 @@ def test_createorder(db_data):
 	# check that the default output order of :meth:`objects` (i.e. create order) works
 	objects = db_data.objects()
 	done = set()
-	for info in objects.values():
+	for info in list(objects.values()):
 		for refobj in info.references:
 			assert refobj in done
 		done.add(info.obj)

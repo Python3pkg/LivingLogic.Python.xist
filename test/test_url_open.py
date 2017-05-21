@@ -435,7 +435,7 @@ def test_resheaders():
 		with url.Context():
 			u = url.URL(u)
 			realheaders = u.resheaders()
-			for (k, v) in headers.items():
+			for (k, v) in list(headers.items()):
 				assert realheaders[k] == v
 
 	check(url.File(__file__)/"../README.rst", {"Content-type": "application/octet-stream"})

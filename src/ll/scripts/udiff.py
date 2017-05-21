@@ -274,20 +274,20 @@ def main(args=None):
 
 	with url.Context():
 		if not args.url1.exists():
-			print("{} doesn't exist".format(args.url1))
+			print(("{} doesn't exist".format(args.url1)))
 			return 1
 		if not args.url2.exists():
-			print("{} doesn't exist".format(args.url2))
+			print(("{} doesn't exist".format(args.url2)))
 			return 1
 		if args.url1.isfile():
 			if args.url2.isfile():
 				comparefiles(args.url1, args.url2)
 			else:
-				print("Can't compare file {} with directory {}".format(args.url1, args.url2))
+				print(("Can't compare file {} with directory {}".format(args.url1, args.url2)))
 				return 1
 		else:
 			if args.url2.isfile():
-				print("Can't compare directory {} with file {}".format(args.url1, args.url2))
+				print(("Can't compare directory {} with file {}".format(args.url1, args.url2)))
 				return 1
 			else:
 				for (url1, file1, url2, file2) in comparedirs(args.url1, args.url2):

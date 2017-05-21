@@ -151,6 +151,7 @@ any) in plain text and HTML format as well as as a JSON attachment.
 
 
 import sys, os, signal, fcntl, traceback, errno, pprint, datetime, argparse, tokenize, json, smtplib
+import collections
 
 try:
 	import gzip
@@ -896,7 +897,7 @@ class Job:
 		except TypeError:
 			count = None
 		for (i, item) in enumerate(iterable):
-			with self.task(type(item) if callable(type) else type, name(item) if callable(name) else name, i, count):
+			with self.task(type(item) if isinstance(type, collections.Callable) else type, name(item) if isinstance(name, collections.Callable) else name, i, count):
 				yield item
 
 	def makeproctitle(self, process, detail=None):

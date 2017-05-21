@@ -301,7 +301,7 @@ def test_itemsslices():
 
 
 def test_item():
-	e = html.div(range(10))
+	e = html.div(list(range(10)))
 	assert str(misc.item(e[xsc.Text], 0)) == "0"
 	assert str(misc.item(e[xsc.Text], 9)) == "9"
 	assert str(misc.item(e[xsc.Text], -1)) == "9"

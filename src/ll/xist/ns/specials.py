@@ -171,7 +171,7 @@ class AttrDecorator(xsc.Element):
 				node.content.mapped(self._mapper, converter),
 				node.attrs.mapped(self._mapper, converter),
 			)
-			for (attrname, attrvalue) in self.attrs.items():
+			for (attrname, attrvalue) in list(self.attrs.items()):
 				if attrname not in node.attrs:
 					node[attrname] = attrvalue.convert(converter)
 		return node

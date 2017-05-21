@@ -80,7 +80,7 @@ def main(args=None):
 		if args.compact:
 			node = node.normalized().compacted()
 		node = node.pretty()
-		print(node.string(encoding=sys.stdout.encoding))
+		print((node.string(encoding=sys.stdout.encoding)))
 
 	p = argparse.ArgumentParser(description="pretty print HTML files", epilog="For more info see http://www.livinglogic.de/Python/XIST_scripts_uhpp.html")
 	p.add_argument("urls", metavar="url", help="URLs to be pretty printed", nargs="*", type=url.URL)

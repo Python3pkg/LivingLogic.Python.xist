@@ -16,7 +16,7 @@ from ll.xist.ns import html, xml, chars, abbr, ihtml, wml, specials, htmlspecial
 
 def test_variousnamespaces():
 	def check(ns, *skip):
-		for obj in vars(ns).values():
+		for obj in list(vars(ns).values()):
 			if isinstance(obj, type) and issubclass(obj, xsc.Element) and not issubclass(obj, skip):
 				node = obj()
 				for attrclass in node.Attrs.declaredattrs():
@@ -26,11 +26,11 @@ def test_variousnamespaces():
 						else:
 							node[attrclass] = "foo"
 				node.conv().bytes(prefixdefault=True)
-		for obj in vars(ns).values():
+		for obj in list(vars(ns).values()):
 			if isinstance(obj, type) and issubclass(obj, xsc.Entity) and not issubclass(obj, skip):
 				node = obj()
 				node.conv().bytes(prefixdefault=True)
-		for obj in vars(ns).values():
+		for obj in list(vars(ns).values()):
 			if isinstance(obj, type) and issubclass(obj, xsc.ProcInst) and not issubclass(obj, skip):
 				node = obj()
 				node.conv().bytes(prefixdefault=True)
